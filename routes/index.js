@@ -2,13 +2,11 @@ exports.index = function(req, res) {
 
     var data = [],
         fs = require('fs'),
-        root = './public/videos',
+        cfg = require('../config'),
+        root = cfg.path,
         path = req.params.path || '';
 
     root += '/' + path;
-
-    console.log('body', req.body);
-    console.log('params', req.params);
 
     fs.readdir(root, function (err, files) {
         if (err) {
