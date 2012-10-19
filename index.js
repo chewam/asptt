@@ -13,8 +13,8 @@ app.configure(function() {
     app.use(express.bodyParser());
     app.use(express.methodOverride());
     app.use(app.router);
-    // app.use(express.static(path.join(__dirname, 'public')));
-    app.use(express.static(config.fsPath));
+    app.use(express.static(path.join(__dirname, 'public')));
+    app.use(express.static(config.path));
 });
 
 app.configure('development', function() {

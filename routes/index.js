@@ -3,7 +3,7 @@ exports.index = function(req, res) {
     var data = [],
         fs = require('fs'),
         cfg = require('../config'),
-        root = cfg.httpPath,
+        root = cfg.path,
         path = req.params.path || '';
 
     root += '/' + path;
