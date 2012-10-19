@@ -5,11 +5,22 @@ var express = require('express'),
 
 var app = module.exports = express();
 
+express.logger.token('datex', function(req, res) {
+    var dt = new Date(),
+        y = dt.getFullYear(),
+        m = dt.getMonth() + 1,
+        d = dt.getDate();
+
+    return d + '/' + m + '/' + y + ' ' + dt.toLocaleTimeString();
+});
+
+express.logger.format('custom', ':datex - :remote-addr - :method :url :status :res[content-length] - :response-time ms - :user-agent');
+
 app.configure(function() {
     app.set('views', __dirname + '/views');
     app.set('view engine', 'jade');
     app.use(express.favicon());
-    app.use(express.logger('dev'));
+    app.use(express.logger('custom'));
     app.use(express.bodyParser());
     app.use(express.methodOverride());
     app.use(app.router);
