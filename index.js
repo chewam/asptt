@@ -12,7 +12,8 @@ app.configure(function() {
     app.use(express.bodyParser());
     app.use(express.methodOverride());
     app.use(app.router);
-    app.use(express.static(path.join(__dirname, 'public')));
+    // app.use(express.static(path.join(__dirname, 'public')));
+    app.use(express.static('/Users/goldledoigt/Work/nodejs/projects/asptt/public/videos/'));
 });
 
 app.configure('development', function() {

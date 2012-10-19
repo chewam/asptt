@@ -10,7 +10,7 @@ block content
             - } else {
                 div #{item.name}
                 video.video-js.vjs-default-skin(id="video_#{index}", controls, preload="auto", width="640", height="264", data-setup="{}")
-                    source(src="/videos/#{item.path}", type='video/mp4')
+                    source(src="/#{item.path}", type='video/mp4')
             - }
         br
     - });
