@@ -1,6 +1,7 @@
 var express = require('express'),
     routes = require('./routes'),
-    path = require('path');
+    path = require('path'),
+    config = require('./config');
 
 var app = module.exports = express();
 
@@ -13,7 +14,7 @@ app.configure(function() {
     app.use(express.methodOverride());
     app.use(app.router);
     // app.use(express.static(path.join(__dirname, 'public')));
-    app.use(express.static('/Users/goldledoigt/Work/nodejs/projects/asptt/public/videos/'));
+    app.use(express.static(config.fsPath));
 });
 
 app.configure('development', function() {
