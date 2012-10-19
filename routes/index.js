@@ -20,6 +20,7 @@ exports.index = function(req, res) {
             data.push({
                 name: file,
                 path: path + '/' + file,
+                pathWebm: (path + '/' + file).split('MP4')[0] + 'webm',
                 isDirectory: fs.statSync(root + '/' + file).isDirectory()
             });
         });

@@ -11,6 +11,7 @@ block content
                 div #{item.name}
                 video.video-js.vjs-default-skin(id="video_#{index}", controls, preload="auto", width="640", height="360", data-setup="{}")
                     source(src="/#{item.path}", type='video/mp4')
+                    source(src="/#{item.pathWebm}", type='video/webm')
             - }
         br
     - });
