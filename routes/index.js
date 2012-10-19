@@ -14,6 +14,8 @@ exports.index = function(req, res) {
             return;
         }
 
+        files.sort();
+
         files.forEach(function(file) {
             data.push({
                 name: file,
