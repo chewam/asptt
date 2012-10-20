@@ -1,17 +1,31 @@
 extends layout
 
 block content
-    h1= title
 
-    - data.forEach(function(item, index) {
-        div
-            - if (item.isDirectory) {
-                a(href="#{item.path}") #{item.name}
-            - } else if (/.mp4$/i.test(item.name)) {
-                div #{item.name}
-                video.video-js.vjs-default-skin(id="video_#{index}", controls, preload="auto", width="640", height="360", data-setup="{}")
-                    source(src="/#{item.path}", type='video/mp4')
-                    source(src="/#{item.pathWebm}", type='video/webm')
-            - }
-        br
-    - });
+    table.table.table-striped
+        tbody
+
+            - data.forEach(function(item, index) {
+                - if (item.isDirectory) {
+                    tr
+                        td.icon
+                            i.icon-folder-open
+                        td
+                            a(href="#{item.path}") #{item.name}
+                - } else if (/.mp4$/i.test(item.name)) {
+                    tr
+                        td.icon
+                            i.icon-facetime-video
+                        td.link
+                            a(href="#", data-path="/#{item.path}", data-pathWebm="/#{item.pathWebm}", data-name="#{item.name}") #{item.name}
+                        td.size #{item.size}
+                - }
+            - });
+
+    div.modal.hide.fade#modal(tabindex="-1", role="dialog", aria-labelledby="modalLabel", aria-hidden="true")
+        div.modal-header
+            button.close(type="button", data-dismiss="modal", aria-hidden="true") x
+            h3#modalLabel
+
+        div.modal-body
+            video.video-js.vjs-default-skin(id="player", controls, preload="auto", data-setup="{}", width="400px", height="300")
