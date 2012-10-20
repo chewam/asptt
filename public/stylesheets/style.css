@@ -4,17 +4,18 @@
     border-bottom: 1px solid #ddd;
 }
 
-h1 {
+h1 a {
     color: #ddd;
     text-shadow: 0 2px 3px #fff;
 }
 
-table .icon {
-    width: 20px;
+h1 a:hover {
+    color: #ddd;
+    text-decoration: none;
 }
 
-table .link {
-    /*width: 100%;*/
+table .icon {
+    width: 20px;
 }
 
 table .size {
@@ -24,4 +25,16 @@ table .size {
 
 .modal:focus {
     outline: 0;
+}
+
+.error-404 {
+    margin-top: 200px;
+    font-size: 200px;
+    text-align: center;
+    line-height: 200px;
+}
+
+.error-404-msg {
+    font-size: 16px;
+    line-height: 18px;
 }

@@ -38,6 +38,11 @@ exports.index = function(req, res) {
     fs.readdir(root, function (err, files) {
         if (err) {
             console.log(err);
+            res.status(404);
+
+            res.render('404', {
+                title: 'ASPTT VIDEOS'
+            });
             return;
         }
 
