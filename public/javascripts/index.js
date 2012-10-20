@@ -14,7 +14,7 @@ $(function() {
         player.bigPlayButton.show();
     });
 
-    $('.link').click(function() {
+    $('.link a').click(function() {
         var link = $(this);
 
         modalLabel.html(link.attr('data-name'));
