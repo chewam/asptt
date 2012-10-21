@@ -60,7 +60,7 @@ exports.index = function(req, res) {
         });
 
         res.render('index', {
-            title: 'ASPTT VIDEOS',
+            title: cfg.name + ' VIDEOS',
             data: data
         });
     });
