@@ -35,13 +35,18 @@ exports.index = function(req, res) {
 
     root += '/' + path;
 
+    if (path.length) path += '/';
+
+    console.log('root', root);
+    console.log('path', path);
+
     fs.readdir(root, function (err, files) {
         if (err) {
             console.log(err);
             res.status(404);
 
             res.render('404', {
-                title: 'ASPTT VIDEOS'
+                title: cfg.name + ' VIDEOS'
             });
             return;
         }
@@ -52,8 +57,8 @@ exports.index = function(req, res) {
             stats = fs.statSync(root + '/' + file);
             data.push({
                 name: file,
-                path: path + '/' + file,
-                pathWebm: (path + '/' + file).split('MP4')[0] + 'webm',
+                path: path + file,
+                pathWebm: (path + file).split('MP4')[0] + 'webm',
                 size: formatFileSize(stats.size),
                 isDirectory: stats.isDirectory()
             });
@@ -66,3 +71,33 @@ exports.index = function(req, res) {
     });
 
 };
+
+exports.download = function(req, res) {
+
+    var cfg = require('../config'),
+        root = cfg.path,
+        path = req.params.path || '',
+        file = root + '/' + path;
+
+    console.log('download', file);
+
+    // var file = __dirname + '/upload-folder/dramaticpenguin.MOV';
+
+    var filename = path.basename(file);
+    var mimetype = mime.lookup(file);
+
+    res.setHeader('Content-disposition', 'attachment; filename=' + filename);
+    res.setHeader('Content-type', mimetype);
+
+    var filestream = fs.createReadStream(file);
+
+    filestream.on('data', function(chunk) {
+        res.write(chunk);
+    });
+
+    filestream.on('end', function() {
+        res.end();
+    });
+
+};
+

@@ -11,7 +11,7 @@ express.logger.token('datex', function(req, res) {
         m = dt.getMonth() + 1,
         d = dt.getDate();
 
-    return d + '/' + m + '/' + y + ' ' + dt.toLocaleTimeString();
+    return config.name + ' - ' + d + '/' + m + '/' + y + ' ' + dt.toLocaleTimeString();
 });
 
 express.logger.format('custom', ':datex - :remote-addr - :method :url :status :res[content-length] - :response-time ms - :user-agent');
@@ -23,14 +23,15 @@ app.configure(function() {
     app.use(express.logger('custom'));
     app.use(express.bodyParser());
     app.use(express.methodOverride());
-    app.use(app.router);
     app.use(express.static(path.join(__dirname, 'public')));
     app.use(express.static(config.path));
+    app.use(app.router);
 });
 
 app.configure('development', function() {
     app.use(express.errorHandler());
 });
 
+app.get('/download/:path', routes.download);
 app.get('/:path', routes.index);
 app.get('/', routes.index);

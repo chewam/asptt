@@ -12,12 +12,16 @@ block content
                             i.icon-folder-open
                         td
                             a(href="#{item.path}") #{item.name}
+                        td
+                        td
                 - } else if (/.mp4$/i.test(item.name)) {
                     tr
                         td.icon
                             i.icon-facetime-video
                         td.link
                             a(href="#", data-path="/#{item.path}", data-pathWebm="/#{item.pathWebm}", data-name="#{item.name}") #{item.name}
+                        td.download
+                            a.btn.btn-success.btn-mini(href="/download/#{item.path}", target="_blank") Download
                         td.size #{item.size}
                 - }
             - });

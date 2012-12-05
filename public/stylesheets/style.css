@@ -18,8 +18,12 @@ table .icon {
     width: 20px;
 }
 
+table .download {
+    width: 40px;
+}
+
 table .size {
-    width: 120px;
+    width: 60px;
     text-align: right;
 }
 
