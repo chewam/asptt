@@ -1,7 +1,6 @@
 var express = require('express'),
     routes = require('./routes'),
-    path = require('path'),
-    config = require('./config');
+    path = require('path');
 
 var app = module.exports = express();
 
@@ -11,7 +10,7 @@ express.logger.token('datex', function(req, res) {
         m = dt.getMonth() + 1,
         d = dt.getDate();
 
-    return config.name + ' - ' + d + '/' + m + '/' + y + ' ' + dt.toLocaleTimeString();
+    return 'ASPTT - ' + d + '/' + m + '/' + y + ' ' + dt.toLocaleTimeString();
 });
 
 express.logger.format('custom', ':datex - :remote-addr - :method :url :status :res[content-length] - :response-time ms - :user-agent');
@@ -24,7 +23,6 @@ app.configure(function() {
     app.use(express.bodyParser());
     app.use(express.methodOverride());
     app.use(express.static(path.join(__dirname, 'public')));
-    app.use(express.static(config.path));
     app.use(app.router);
 });
 
