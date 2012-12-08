@@ -1,24 +1,25 @@
 doctype 5
-html
+html(ng:app)
     head
-        title= title
-        link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
-        link(rel="stylesheet", href="/stylesheets/video-js.min.css")
-        link(rel='stylesheet', href='/stylesheets/style.css')
+        title ASPTTB VIDEOS
+        link(rel='stylesheet', href='/css/bootstrap.min.css')
+        link(rel='stylesheet', href='/css/bootstrap-responsive.min.css')
+        link(rel='stylesheet', href='/css/style.css')
     body
 
         div.header
             div.container
                 h1
-                    a(href="http://asptt.chewam.com/")= title
+                    a(href="http://asptt.chewam.com/") ASPTTB VIDEOS
 
         div.container
             block content
 
-        script(src="/javascripts/jquery.min.js")
-        script(src="/javascripts/bootstrap.min.js")
-        script(src="/javascripts/video.min.js")
-        script(src="/javascripts/index.js")
+        script(src="/js/angular.min.js")
+        // script(src="/js/jquery.min.js")
+        // script(src="/js/bootstrap-transition.js")
+        // script(src="/js/bootstrap-collapse.js")
+        script(src="/js/index.js")
 
         script(type="text/javascript")
             var _gaq = _gaq || [];

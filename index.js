@@ -32,6 +32,6 @@ app.configure('development', function() {
     app.use(express.errorHandler());
 });
 
-app.get('/download/:path', routes.download);
-app.get('/:path', routes.index);
+// app.get('/download/:path', routes.download);
+// app.get('/:path', routes.index);
 app.get('/', routes.index);

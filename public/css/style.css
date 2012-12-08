@@ -1,0 +1,89 @@
+.list {
+    padding: 0;
+    background-color: #fff;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    -webkit-box-shadow: 0 1px 4px rgba(0,0,0,.065);
+    -moz-box-shadow: 0 1px 4px rgba(0,0,0,.065);
+    box-shadow: 0 1px 4px rgba(0,0,0,.065);
+}
+
+.list li {
+    position: relative;
+}
+
+.list > li:first-child > a {
+    -webkit-border-radius: 6px 6px 0 0;
+    -moz-border-radius: 6px 6px 0 0;
+    border-radius: 6px 6px 0 0;
+}
+
+.list > li:last-child > a {
+    -webkit-border-radius: 0 0 6px 6px;
+    -moz-border-radius: 0 0 6px 6px;
+    border-radius: 0 0 6px 6px;
+}
+
+.list > li > a {
+    display: block;
+    margin: 0 0 -1px;
+    padding: 8px 14px;
+    border: 1px solid #e5e5e5;
+}
+
+.list .icon-chevron-right {
+    float: right;
+    margin-top: 2px;
+    margin-right: -6px;
+    opacity: .25;
+    /*margin-top: -2px;*/
+}
+
+.list .date {
+    right: 3px;
+    bottom: -2px;
+    font-size: .7em;
+    position: absolute;
+    color: #BBB;
+}
+
+.list .active .date {
+    color: #EEE;
+}
+
+.header {
+    background-color: #F5F5F5;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+h1 a {
+    color: #ddd;
+    text-shadow: 0 2px 3px #fff;
+}
+
+h1 a:hover {
+    color: #ddd;
+    text-decoration: none;
+}
+
+.thumbnails .span3 {
+    margin: 0 8px 8px 0;
+}
+
+.thumbnails .span3 a {
+    height: 195px;
+}
+
+.thumbnails .active a {
+    border-color: #08c;
+    -webkit-box-shadow: 0 1px 4px rgba(0,105,214,0.25);
+    -moz-box-shadow: 0 1px 4px rgba(0,105,214,0.25);
+    box-shadow: 0 1px 4px rgba(0,105,214,0.25);
+}
+
+.loader {
+    height: 90px;
+    background: url(../img/loading.gif) no-repeat scroll center white;
+}

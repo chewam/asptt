@@ -2,34 +2,26 @@ extends layout
 
 block content
 
-    table.table.table-striped
-        tbody
+    div.row-fluid(ng:controller="MainCtrl")
 
-            - data.forEach(function(item, index) {
-                - if (item.isDirectory) {
-                    tr
-                        td.icon
-                            i.icon-folder-open
-                        td
-                            a(href="#{item.path}") #{item.name}
-                        td
-                        td
-                - } else if (/.mp4$/i.test(item.name)) {
-                    tr
-                        td.icon
-                            i.icon-facetime-video
-                        td.link
-                            a(href="#", data-path="/#{item.path}", data-pathWebm="/#{item.pathWebm}", data-name="#{item.name}") #{item.name}
-                        td.download
-                            a.btn.btn-success.btn-mini(href="/download/#{item.path}", target="_blank") Download
-                        td.size #{item.size}
-                - }
-            - });
+        div.span4
+            ul.list.nav.nav-list
+                li(ng:repeat="match in matchs", ng:click="onMatchClick(match)", ng:class="getMatchCls(match)")
+                    a
+                        i.icon-chevron-right
+                        |{{match.name}}
+                    //- span.date {{match.date}}
 
-    div.modal.hide.fade#modal(tabindex="-1", role="dialog", aria-labelledby="modalLabel", aria-hidden="true")
-        div.modal-header
-            button.close(type="button", data-dismiss="modal", aria-hidden="true") x
-            h3#modalLabel
+        div.span8
 
-        div.modal-body
-            video.video-js.vjs-default-skin(id="player", controls, preload="auto", data-setup="{}", width="400px", height="300")
+            div#player
+
+            ul.thumbnails
+                li.span3(ng:repeat="video in videos", ng:init="id = video.media$group.yt$videoid.$t", ng:click="onVideoClick(video)", ng:class="getVideoCls(video)")
+                    div.loader(ng:show="video.loading")
+                    a.thumbnail(ng:show="video.id")
+                        img(ng:src="{{video.media$group.media$thumbnail[1].url}}", width="{{video.media$group.media$thumbnail[1].width}}", height="{{video.media$group.media$thumbnail[1].height}}", alt="")
+                        div.caption
+                            h5 {{video.title.$t}}
+
+            div.clearfix
