@@ -22,6 +22,14 @@ var matchs = [{
     date: '02/12/12',
     name: 'ASPTT B vs SCUF A',
     videos: ['-1cMdkTL-U4', 'enByfuec47c', '0hgSX-2Joec', '9ec_KbWMgqI', 'XVtq2X2GScg', '1GeUOye3JyY', 'jOQH2JGyVfM', 'xZQbmBB-vG4']
+}, {
+    date: '09/12/12',
+    name: 'ASPTT B vs DUNOIS (retour)',
+    videos: ['D6UmCiXwysg', 'YzoXU7lqO8U', '9pcURzRIi6k', 'kqVetj8nYPk', 'IKgcyqZ6VUY', 'eTkaZPxLs0k', 'eWYV1goU9wo']
+}, {
+    date: '16/12/12',
+    name: 'ASPTT B vs AS RUSSE (retour)',
+    videos: ['zzw7XuR7Lw8', 'tdVVivGsx0E']
 }];
 
 function MainCtrl($scope, $http) {
