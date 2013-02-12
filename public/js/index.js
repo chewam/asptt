@@ -34,6 +34,10 @@ var matchs = [{
     date: '28/01/13',
     name: 'ASPTT B vs ASPTT A',
     videos: ['LqREfVe2hhY', 'F5CX6MG0jsY', 'gKRxHWvoEQo', 'DgYjPc-ed7M', 'WhdPyVMvjeM', 'qXJiXZiAquM', '--CaAbqlKGw', '80x1W2wuU0g', '8v89iYY3VKs']
+}, {
+    date: '28/01/13',
+    name: 'ASPTT B vs PVC',
+    videos: ['2Mo5-1d_COk', 'A7MtrJm3pgk', 'r23-jwsHX_M', 'YyYmvT2F1DU', 'O275S9kgGKw', '2zmDrcemhvI']
 }];
 
 function MainCtrl($scope, $http) {
