@@ -30,6 +30,10 @@ var matchs = [{
     date: '16/12/12',
     name: 'ASPTT B vs AS RUSSE (retour)',
     videos: ['zzw7XuR7Lw8', 'tdVVivGsx0E']
+}, {
+    date: '28/01/13',
+    name: 'ASPTT B vs ASPTT A',
+    videos: ['LqREfVe2hhY', 'F5CX6MG0jsY', 'gKRxHWvoEQo', 'DgYjPc-ed7M', 'WhdPyVMvjeM', 'qXJiXZiAquM', '--CaAbqlKGw', '80x1W2wuU0g', '8v89iYY3VKs']
 }];
 
 function MainCtrl($scope, $http) {
